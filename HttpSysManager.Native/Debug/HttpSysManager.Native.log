@@ -1,0 +1,7 @@
+﻿  AssemblyInfo.cpp
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Native\AssemblyInfo.cpp(40,29): warning C4947:  'System::Security::Permissions::SecurityAction::RequestMinimum': marked as obsolete
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Native\AssemblyInfo.cpp(40,29): message :  Message: 'Assembly level declarative security is obsolete and is no longer enforced by the CLR by default. See http://go.microsoft.com/fwlink/?LinkID=155570 for more information.'
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+  AssemblyInfo.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
+  AssemblyInfo.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  HttpSysManager.Native.vcxproj -> C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\Debug\HttpSysManager.Native.dll

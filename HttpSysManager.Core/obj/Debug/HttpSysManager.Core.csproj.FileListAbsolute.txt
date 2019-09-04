@@ -1,0 +1,12 @@
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Core\bin\Debug\HttpSysManager.Core.dll
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Core\bin\Debug\HttpSysManager.Core.pdb
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Core\bin\Debug\ProcessHacker.Common.dll
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Core\bin\Debug\ProcessHacker.Native.dll
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Core\bin\Debug\ProcessHacker.Common.pdb
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Core\bin\Debug\ProcessHacker.Native.pdb
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Core\bin\Debug\ProcessHacker.Native.dll.config
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Core\obj\Debug\HttpSysManager.Core.csprojAssemblyReference.cache
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Core\obj\Debug\HttpSysManager.Core.csproj.CoreCompileInputs.cache
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Core\obj\Debug\HttpSysManager.Core.csproj.CopyComplete
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Core\obj\Debug\HttpSysManager.Core.dll
+C:\F88\httpsysmanager\sourceCode\HttpSysManager\trunk\HttpSysManager.Core\obj\Debug\HttpSysManager.Core.pdb

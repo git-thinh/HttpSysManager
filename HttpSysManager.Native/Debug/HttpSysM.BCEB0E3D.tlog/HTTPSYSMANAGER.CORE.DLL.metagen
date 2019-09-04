@@ -1,0 +1,30 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly HttpSysManager.Core, Version=1.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly ProcessHacker.Native, Version=1.11.*, Culture=Invariant Language (Invariant Country): 
+	hash=None, flags=None
+Assembly System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class HttpSysManager.Core.CertificateHelper: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    GetCertificate(StoreLocation, StoreName, X509FindType, Object): PrivateScope, Public, Static, HideBySig
+    GetFriendlyNameOrName(X509Certificate2): PrivateScope, Public, Static, HideBySig
+Class HttpSysManager.Core.InteropHelper: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    ToCSharpArray(Byte*, Int32): PrivateScope, Public, Static, HideBySig
+    ToCArray(Byte[]): PrivateScope, Public, Static, HideBySig
+Class HttpSysManager.Core.Thumbprint: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Byte*, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Byte[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Byte[] Data 'get ' : 
+  Methods:
+    get_Data(): PrivateScope, Public, HideBySig, SpecialName
+    ToString(): PrivateScope, Public, Virtual, HideBySig

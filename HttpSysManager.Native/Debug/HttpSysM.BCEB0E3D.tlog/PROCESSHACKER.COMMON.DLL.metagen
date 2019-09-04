@@ -1,0 +1,964 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly ProcessHacker.Common, Version=1.11.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class ProcessHacker.Common.LoggingDelegate: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(String, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.Logging: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Events:
+    ProcessHacker.Common.LoggingDelegate Logged: 
+  Methods:
+    add_Logged(LoggingDelegate): PrivateScope, Public, Static, HideBySig, SpecialName
+    remove_Logged(LoggingDelegate): PrivateScope, Public, Static, HideBySig, SpecialName
+    Log(Importance, String): PrivateScope, Public, Static, HideBySig
+    Log(Exception): PrivateScope, Public, Static, HideBySig
+Struct ProcessHacker.Common.Logging+Importance: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Importance Information = 0 : Public, Static, Literal, HasDefault
+    Importance Warning = 1 : Public, Static, Literal, HasDefault
+    Importance Error = 2 : Public, Static, Literal, HasDefault
+    Importance Critical = 3 : Public, Static, Literal, HasDefault
+Interface ProcessHacker.Common.Settings.ISettingsStore: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    Flush(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    GetValue(String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Reset(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    SetValue(String, String): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class ProcessHacker.Common.Settings.VolatileSettingsStore: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    ProcessHacker.Common.Settings.ISettingsStore
+  Methods:
+    Flush(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    GetValue(String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Reset(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    SetValue(String, String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.LibC: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    MemChr(Byte*, Byte, Int32): PrivateScope, Public, Static, HideBySig
+    MemCmp(Byte*, Byte*, Int32): PrivateScope, Public, Static, HideBySig
+    MemCpy(Byte*, Byte*, Int32): PrivateScope, Public, Static, HideBySig
+    MemSet(Byte*, Byte, Int32): PrivateScope, Public, Static, HideBySig
+    WMemChr(Char*, Char, Int32): PrivateScope, Public, Static, HideBySig
+    WMemCmp(Char*, Char*, Int32): PrivateScope, Public, Static, HideBySig
+    WMemCpy(Char*, Char*, Int32): PrivateScope, Public, Static, HideBySig
+    WMemCpyUnaligned(Char*, Char*, Int32): PrivateScope, Public, Static, HideBySig
+    WMemSet(Char*, Char, Int32): PrivateScope, Public, Static, HideBySig
+Class ProcessHacker.Common.Tokenizer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Index 'get set' : 
+  Methods:
+    get_Index(): PrivateScope, Public, HideBySig, SpecialName
+    set_Index(Int32): PrivateScope, Public, HideBySig, SpecialName
+    EatId(): PrivateScope, Public, HideBySig
+    EatNumber(): PrivateScope, Public, HideBySig
+    EatQuotedString(): PrivateScope, Public, HideBySig
+    EatSymbol(): PrivateScope, Public, HideBySig
+    EatUntil(Char): PrivateScope, Public, HideBySig
+    EatWhitespace(): PrivateScope, Public, HideBySig
+    EatWhitespace(Boolean): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.FreeList`1[T]: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Type parameter: T, ProcessHacker.Common.IResettable,  DefaultConstructor
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Count 'get ' : 
+    Int32 MaximumCount 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_MaximumCount(): PrivateScope, Public, HideBySig, SpecialName
+    Allocate(): PrivateScope, Public, HideBySig
+    Free(T): PrivateScope, Public, HideBySig
+Struct ProcessHacker.Common.Threading.RundownProtection: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Count 'get ' : 
+    Boolean Rundown 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    get_Rundown(): PrivateScope, Public, HideBySig, SpecialName
+    Acquire(): PrivateScope, Public, HideBySig
+    Acquire(Int32): PrivateScope, Public, HideBySig
+    Release(): PrivateScope, Public, HideBySig
+    Release(Int32): PrivateScope, Public, HideBySig
+    Wait(): PrivateScope, Public, HideBySig
+    Wait(Int32): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.LinkedListEntry`1[T]: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Type parameter: T
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    ProcessHacker.Common.LinkedListEntry`1[T] Flink : Public
+    ProcessHacker.Common.LinkedListEntry`1[T] Blink : Public
+    T Value : Public
+Class ProcessHacker.Common.LinkedList: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    InitializeListHead(LinkedListEntry`1): PrivateScope, Public, Static, HideBySig
+    RemoveEntryList(LinkedListEntry`1): PrivateScope, Public, Static, HideBySig
+    RemoveHeadList(LinkedListEntry`1): PrivateScope, Public, Static, HideBySig
+    RemoveTailList(LinkedListEntry`1): PrivateScope, Public, Static, HideBySig
+    InsertTailList(LinkedListEntry`1, LinkedListEntry`1): PrivateScope, Public, Static, HideBySig
+    InsertHeadList(LinkedListEntry`1, LinkedListEntry`1): PrivateScope, Public, Static, HideBySig
+Interface ProcessHacker.Common.Threading.IResourceLock: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    AcquireExclusive(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    AcquireShared(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ReleaseExclusive(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    ReleaseShared(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    TryAcquireExclusive(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    TryAcquireShared(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Interface ProcessHacker.Common.ISubtractor`1[T]: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Type parameter: T
+  Methods:
+    Subtract(T, T): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class ProcessHacker.Common.Subtractor: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Properties:
+    ProcessHacker.Common.Int64Subtractor Int64Subtractor 'get ' : 
+    ProcessHacker.Common.Int32Subtractor Int32Subtractor 'get ' : 
+    ProcessHacker.Common.DoubleSubtractor DoubleSubtractor 'get ' : 
+    ProcessHacker.Common.FloatSubtractor FloatSubtractor 'get ' : 
+  Methods:
+    get_Int64Subtractor(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_Int32Subtractor(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_DoubleSubtractor(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_FloatSubtractor(): PrivateScope, Public, Static, HideBySig, SpecialName
+Class ProcessHacker.Common.Int64Subtractor: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    ProcessHacker.Common.ISubtractor`1[System.Int64]
+  Methods:
+    Subtract(Int64, Int64): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.Int32Subtractor: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    ProcessHacker.Common.ISubtractor`1[System.Int32]
+  Methods:
+    Subtract(Int32, Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.DoubleSubtractor: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    ProcessHacker.Common.ISubtractor`1[System.Double]
+  Methods:
+    Subtract(Double, Double): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.FloatSubtractor: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    ProcessHacker.Common.ISubtractor`1[System.Single]
+  Methods:
+    Subtract(Single, Single): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Interface ProcessHacker.Common.IDeltaValue`1[T]: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Type parameter: T
+  Properties:
+    T Value    'get ' : 
+    T Delta    'get ' : 
+  Methods:
+    get_Value(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    get_Delta(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName
+    Update(T): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Struct ProcessHacker.Common.DeltaValue`1[T]: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  Type parameter: T
+  :System.ValueType
+    Void .ctor(ProcessHacker.Common.ISubtractor`1[T], T): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    ProcessHacker.Common.IDeltaValue`1[T]
+  Properties:
+    T Value    'get ' : 
+    T Delta    'get ' : 
+  Methods:
+    get_Value(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Delta(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Update(T): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Struct ProcessHacker.Common.Int64Delta: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(Int64): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    ProcessHacker.Common.IDeltaValue`1[System.Int64]
+  Properties:
+    Int64 Value 'get ' : 
+    Int64 Delta 'get ' : 
+  Methods:
+    Update(Int64Delta&, Int64): PrivateScope, Public, Static, HideBySig
+    get_Value(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Delta(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Update(Int64): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.WorkQueue: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    ProcessHacker.Common.WorkQueue GlobalWorkQueue 'get ' : 
+    Int32 BusyCount 'get ' : 
+    Int32 MaxWorkerThreads 'get set' : 
+    Int32 MinWorkerThreads 'get set' : 
+    Int32 NoWorkTimeout 'get set' : 
+    Int32 QueuedCount 'get ' : 
+    Int32 WorkerCount 'get ' : 
+  Methods:
+    get_GlobalWorkQueue(): PrivateScope, Public, Static, HideBySig, SpecialName
+    GlobalQueueWorkItem(Delegate): PrivateScope, Public, Static, HideBySig
+    GlobalQueueWorkItem(Delegate, Object[]): PrivateScope, Public, Static, HideBySig
+    GlobalQueueWorkItemTag(Delegate, String): PrivateScope, Public, Static, HideBySig
+    GlobalQueueWorkItemTag(Delegate, String, Object[]): PrivateScope, Public, Static, HideBySig
+    get_BusyCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_MaxWorkerThreads(): PrivateScope, Public, HideBySig, SpecialName
+    set_MaxWorkerThreads(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_MinWorkerThreads(): PrivateScope, Public, HideBySig, SpecialName
+    set_MinWorkerThreads(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_NoWorkTimeout(): PrivateScope, Public, HideBySig, SpecialName
+    set_NoWorkTimeout(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_QueuedCount(): PrivateScope, Public, HideBySig, SpecialName
+    get_WorkerCount(): PrivateScope, Public, HideBySig, SpecialName
+    CreateMinimumWorkerThreads(): PrivateScope, Public, HideBySig
+    GetQueuedWorkItems(): PrivateScope, Public, HideBySig
+    JoinAll(): PrivateScope, Public, HideBySig
+    RemoveQueuedWorkItem(WorkItem): PrivateScope, Public, HideBySig
+    ResetJoin(): PrivateScope, Public, HideBySig
+    QueueWorkItem(Delegate): PrivateScope, Public, HideBySig
+    QueueWorkItem(Delegate, Object[]): PrivateScope, Public, HideBySig
+    QueueWorkItemTag(Delegate, String): PrivateScope, Public, HideBySig
+    QueueWorkItemTag(Delegate, String, Object[]): PrivateScope, Public, HideBySig
+    QueueWorkItemTag(Delegate, String, Boolean, Object[]): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.WorkQueue+WorkItem: AutoLayout, AnsiClass, Class, NestedPublic, Sealed, BeforeFieldInit
+  Properties:
+    System.Delegate Work 'get ' : 
+    System.Object[] Arguments 'get ' : 
+    System.String Tag 'get ' : 
+    Boolean Completed 'get ' : 
+    System.Object Result 'get ' : 
+    System.Exception Exception 'get ' : 
+  Methods:
+    get_Work(): PrivateScope, Public, HideBySig, SpecialName
+    get_Arguments(): PrivateScope, Public, HideBySig, SpecialName
+    get_Tag(): PrivateScope, Public, HideBySig, SpecialName
+    get_Completed(): PrivateScope, Public, HideBySig, SpecialName
+    get_Result(): PrivateScope, Public, HideBySig, SpecialName
+    get_Exception(): PrivateScope, Public, HideBySig, SpecialName
+    Abort(): PrivateScope, Public, HideBySig
+    GetResult(): PrivateScope, Public, HideBySig
+    WaitOne(): PrivateScope, Public, HideBySig
+    WaitOne(Int32): PrivateScope, Public, HideBySig
+Interface ProcessHacker.Common.Objects.IRefCounted: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dereference(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Dereference(Boolean): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Dereference(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Dereference(Int32, Boolean): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Dispose(Boolean): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Reference(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+    Reference(Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class ProcessHacker.Common.Objects.BaseObject: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    ProcessHacker.Common.Objects.IRefCounted
+    System.IDisposable
+  Properties:
+    Int32 CreatedCount 'get ' : 
+    Int32 FreedCount 'get ' : 
+    Int32 DisposedCount 'get ' : 
+    Int32 FinalizedCount 'get ' : 
+    Int32 ReferencedCount 'get ' : 
+    Int32 DereferencedCount 'get ' : 
+    Boolean Disposed 'get ' : 
+    Boolean Owned 'get ' : 
+    Boolean OwnedByGc 'get ' : 
+    Int32 ReferenceCount 'get ' : 
+  Methods:
+    get_CreatedCount(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_FreedCount(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_DisposedCount(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_FinalizedCount(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_ReferencedCount(): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_DereferencedCount(): PrivateScope, Public, Static, HideBySig, SpecialName
+    SwapRef(T&, T): PrivateScope, Public, Static, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dispose(Boolean): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    DisposeDelayed(): PrivateScope, Public, HideBySig
+    get_Disposed(): PrivateScope, Public, HideBySig, SpecialName
+    get_Owned(): PrivateScope, Public, HideBySig, SpecialName
+    get_OwnedByGc(): PrivateScope, Public, HideBySig, SpecialName
+    get_ReferenceCount(): PrivateScope, Public, HideBySig, SpecialName
+    Dereference(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dereference(Boolean): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dereference(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Dereference(Int32, Boolean): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    DereferenceDelayed(): PrivateScope, Public, HideBySig
+    Reference(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Reference(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.Threading.FairResourceLock: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+    ProcessHacker.Common.Threading.IResourceLock
+  Properties:
+    Boolean Owned 'get ' : 
+    Int32 SharedOwners 'get ' : 
+    Int32 SpinCount 'get set' : 
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_Owned(): PrivateScope, Public, HideBySig, SpecialName
+    get_SharedOwners(): PrivateScope, Public, HideBySig, SpecialName
+    get_SpinCount(): PrivateScope, Public, HideBySig, SpecialName
+    set_SpinCount(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AcquireExclusive(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    AcquireShared(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ConvertExclusiveToShared(): PrivateScope, Public, HideBySig
+    ConvertSharedToExclusive(): PrivateScope, Public, HideBySig
+    GetStatistics(): PrivateScope, Public, HideBySig
+    ReleaseExclusive(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ReleaseShared(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    TryAcquireExclusive(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    TryAcquireShared(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    TryConvertSharedToExclusive(): PrivateScope, Public, HideBySig
+Struct ProcessHacker.Common.Threading.FairResourceLock+Statistics: AutoLayout, AnsiClass, Class, NestedPublic, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Fields:
+    Int32 AcqExcl : Public
+    Int32 AcqShrd : Public
+    Int32 AcqExclCont : Public
+    Int32 AcqShrdCont : Public
+    Int32 AcqExclBlk : Public
+    Int32 AcqShrdBlk : Public
+    Int32 AcqExclSlp : Public
+    Int32 AcqShrdSlp : Public
+    Int32 InsWaitBlkRetry : Public
+    Int32 PeakExclWtrsCount : Public
+    Int32 PeakShrdWtrsCount : Public
+Class ProcessHacker.Common.Threading.WaitableQueue`1[T]: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Type parameter: T
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerable`1[T]
+    System.Collections.IEnumerable
+  Properties:
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    Clear(): PrivateScope, Public, HideBySig
+    Contains(T): PrivateScope, Public, HideBySig
+    Dequeue(): PrivateScope, Public, HideBySig
+    Dequeue(Int32, T&(Out)): PrivateScope, Public, HideBySig
+    Enqueue(T): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ToArray(): PrivateScope, Public, HideBySig
+    TrimExcess(): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.Settings.SettingDefaultAttribute: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Attribute
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String Value 'get ' : 
+  Methods:
+    get_Value(): PrivateScope, Public, HideBySig, SpecialName
+Class ProcessHacker.Common.Messaging.Message: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Object Tag 'get set' : 
+  Methods:
+    get_Tag(): PrivateScope, Public, HideBySig, SpecialName
+    set_Tag(Object): PrivateScope, Public, HideBySig, SpecialName
+Class ProcessHacker.Common.Messaging.ActionMessage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :ProcessHacker.Common.Messaging.Message
+    Void .ctor(System.Action): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Action Action 'get ' : 
+  Methods:
+    get_Action(): PrivateScope, Public, HideBySig, SpecialName
+Struct ProcessHacker.Common.Threading.FastEvent: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean Value 'get ' : 
+  Methods:
+    get_Value(): PrivateScope, Public, HideBySig, SpecialName
+    Reset(): PrivateScope, Public, HideBySig
+    Set(): PrivateScope, Public, HideBySig
+    SpinWait(): PrivateScope, Public, HideBySig
+    SpinWait(Int32): PrivateScope, Public, HideBySig
+    Wait(): PrivateScope, Public, HideBySig
+    Wait(Int32): PrivateScope, Public, HideBySig
+Struct ProcessHacker.Common.String255: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(ProcessHacker.Common.String255, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Char*, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IEquatable`1[ProcessHacker.Common.String255]
+    System.IEquatable`1[System.String]
+  Fields:
+    <Buffer>e__FixedBuffer0 Buffer : Public
+    Byte Length : Public
+    Int32 MaximumLength = 255 : Public, Static, Literal, HasDefault
+  Properties:
+    Char Item [Int32] 'get set' : 
+  Methods:
+    get_Item(Int32): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(Int32, Char): PrivateScope, Public, HideBySig, SpecialName
+    Append(Char): PrivateScope, Public, HideBySig
+    Append(String255): PrivateScope, Public, HideBySig
+    Append(String): PrivateScope, Public, HideBySig
+    CompareTo(String255): PrivateScope, Public, HideBySig
+    EndsWith(String255): PrivateScope, Public, HideBySig
+    Equals(Object): PrivateScope, Public, Virtual, HideBySig
+    Equals(String255): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Equals(String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    IndexOf(Char): PrivateScope, Public, HideBySig
+    GetHashCode(): PrivateScope, Public, Virtual, HideBySig
+    StartsWith(String255): PrivateScope, Public, HideBySig
+    Substring(Int32): PrivateScope, Public, HideBySig
+    Substring(Int32, Int32): PrivateScope, Public, HideBySig
+    ToString(): PrivateScope, Public, Virtual, HideBySig
+Struct ProcessHacker.Common.String255+<Buffer>e__FixedBuffer0: AutoLayout, AnsiClass, Class, NestedPublic, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Fields:
+    Char FixedElementField : Public
+Class ProcessHacker.Common.WeakReference`1[T]: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Type parameter: T,  ReferenceType
+    Void .ctor(T): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(T, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean Alive 'get ' : 
+    Boolean TrackResurrection 'get ' : 
+    T Target   'get ' : 
+  Methods:
+    op_Implicit(WeakReference`1): PrivateScope, Public, Static, HideBySig, SpecialName
+    get_Alive(): PrivateScope, Public, HideBySig, SpecialName
+    get_TrackResurrection(): PrivateScope, Public, HideBySig, SpecialName
+    get_Target(): PrivateScope, Public, HideBySig, SpecialName
+Class ProcessHacker.Common.Threading.ThreadTaskCompletedDelegate: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(Object, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.Threading.ThreadTaskRunTaskDelegate: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Object, Object&): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(Object, Object&, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(Object&, IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.Threading.ThreadTask: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean Cancelled 'get ' : 
+    System.Exception Exception 'get ' : 
+    System.Object Result 'get ' : 
+    Boolean Running 'get ' : 
+  Events:
+    ProcessHacker.Common.Threading.ThreadTaskCompletedDelegate Completed: 
+    ProcessHacker.Common.Threading.ThreadTaskRunTaskDelegate RunTask: 
+  Methods:
+    add_Completed(ThreadTaskCompletedDelegate): PrivateScope, Public, HideBySig, SpecialName
+    remove_Completed(ThreadTaskCompletedDelegate): PrivateScope, Public, HideBySig, SpecialName
+    add_RunTask(ThreadTaskRunTaskDelegate): PrivateScope, Public, HideBySig, SpecialName
+    remove_RunTask(ThreadTaskRunTaskDelegate): PrivateScope, Public, HideBySig, SpecialName
+    get_Cancelled(): PrivateScope, Public, HideBySig, SpecialName
+    get_Exception(): PrivateScope, Public, HideBySig, SpecialName
+    get_Result(): PrivateScope, Public, HideBySig, SpecialName
+    get_Running(): PrivateScope, Public, HideBySig, SpecialName
+    Cancel(): PrivateScope, Public, HideBySig
+    Start(): PrivateScope, Public, HideBySig
+    Start(Object): PrivateScope, Public, HideBySig
+    Wait(): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.Threading.FastStack`1[T]: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Type parameter: T
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IEnumerable`1[T]
+    System.Collections.IEnumerable
+  Properties:
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    Peek(): PrivateScope, Public, HideBySig
+    Pop(): PrivateScope, Public, HideBySig
+    Push(T): PrivateScope, Public, HideBySig
+    GetEnumerator(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.Threading.FastResourceLock: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+    ProcessHacker.Common.Threading.IResourceLock
+  Properties:
+    Int32 ExclusiveWaiters 'get ' : 
+    Boolean Owned 'get ' : 
+    Int32 SharedOwners 'get ' : 
+    Int32 SharedWaiters 'get ' : 
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_ExclusiveWaiters(): PrivateScope, Public, HideBySig, SpecialName
+    get_Owned(): PrivateScope, Public, HideBySig, SpecialName
+    get_SharedOwners(): PrivateScope, Public, HideBySig, SpecialName
+    get_SharedWaiters(): PrivateScope, Public, HideBySig, SpecialName
+    AcquireExclusive(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    AcquireShared(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ConvertExclusiveToShared(): PrivateScope, Public, HideBySig
+    GetStatistics(): PrivateScope, Public, HideBySig
+    ReleaseExclusive(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ReleaseShared(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    SpinAcquireExclusive(): PrivateScope, Public, HideBySig
+    SpinAcquireShared(): PrivateScope, Public, HideBySig
+    SpinConvertSharedToExclusive(): PrivateScope, Public, HideBySig
+    TryAcquireExclusive(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    TryAcquireShared(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    TryConvertSharedToExclusive(): PrivateScope, Public, HideBySig
+Struct ProcessHacker.Common.Threading.FastResourceLock+Statistics: AutoLayout, AnsiClass, Class, NestedPublic, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Fields:
+    Int32 AcqExcl : Public
+    Int32 AcqShrd : Public
+    Int32 AcqExclCont : Public
+    Int32 AcqShrdCont : Public
+    Int32 AcqExclSlp : Public
+    Int32 AcqShrdSlp : Public
+    Int32 PeakExclWtrsCount : Public
+    Int32 PeakShrdWtrsCount : Public
+Struct ProcessHacker.Common.Threading.FastLock: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Acquire(): PrivateScope, Public, HideBySig
+    Release(): PrivateScope, Public, HideBySig
+    TryAcquire(): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.Ui.ColumnHeaderExtensions: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    SetSortIcon(ColumnHeader, SortOrder): PrivateScope, Public, Static, HideBySig
+Struct ProcessHacker.Common.Threading.SpinLock: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Methods:
+    Acquire(): PrivateScope, Public, HideBySig
+    AcquireContext(): PrivateScope, Public, HideBySig
+    Release(): PrivateScope, Public, HideBySig
+Struct ProcessHacker.Common.Threading.SpinLock+SpinLockContext: AutoLayout, AnsiClass, Class, NestedPublic, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.ByteStreamReader: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.IO.Stream
+    Void .ctor(Byte[]): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean CanRead 'get ' : 
+    Boolean CanSeek 'get ' : 
+    Boolean CanWrite 'get ' : 
+    Int64 Length 'get ' : 
+    Int64 Position 'get set' : 
+  Methods:
+    get_CanRead(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_CanSeek(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_CanWrite(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    Flush(): PrivateScope, Public, Virtual, HideBySig
+    get_Length(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    get_Position(): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    set_Position(Int64): PrivateScope, Public, Virtual, HideBySig, SpecialName
+    Read(Byte[], Int32, Int32): PrivateScope, Public, Virtual, HideBySig
+    Seek(Int64, SeekOrigin): PrivateScope, Public, Virtual, HideBySig
+    SetLength(Int64): PrivateScope, Public, Virtual, HideBySig
+    Write(Byte[], Int32, Int32): PrivateScope, Public, Virtual, HideBySig
+Class ProcessHacker.Common.IdGenerator: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Boolean Sort 'get set' : 
+  Methods:
+    get_Sort(): PrivateScope, Public, HideBySig, SpecialName
+    set_Sort(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    Pop(): PrivateScope, Public, HideBySig
+    Push(Int32): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.Objects.HandleTableEntry: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Handle 'get set' : 
+    ProcessHacker.Common.Objects.IRefCounted Object 'get set' : 
+  Methods:
+    get_Handle(): PrivateScope, Public, HideBySig, SpecialName
+    get_Object(): PrivateScope, Public, HideBySig, SpecialName
+Class ProcessHacker.Common.Objects.HandleTable`1[TEntry]: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Type parameter: TEntry, ProcessHacker.Common.Objects.HandleTableEntry,  DefaultConstructor
+  :ProcessHacker.Common.Objects.BaseObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Allocate(IRefCounted): PrivateScope, Public, HideBySig
+    Allocate(IRefCounted, TEntry): PrivateScope, Public, HideBySig
+    Enumerate(EnumerateHandleTableDelegate): PrivateScope, Public, HideBySig
+    Free(Int32): PrivateScope, Public, HideBySig
+    LookupEntry(Int32): PrivateScope, Public, HideBySig
+    LookupObject(Int32): PrivateScope, Public, HideBySig
+    LookupObject(Int32): PrivateScope, Public, HideBySig
+    ReferenceByHandle(Int32): PrivateScope, Public, HideBySig
+    ReferenceByHandle(Int32, TEntry&(Out)): PrivateScope, Public, HideBySig
+    ReferenceByHandle(Int32): PrivateScope, Public, HideBySig
+    ReferenceByHandle(Int32, TEntry&(Out)): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.Objects.HandleTable`1+EnumerateHandleTableDelegate[TEntry]: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  Type parameter: TEntry, ProcessHacker.Common.Objects.HandleTableEntry,  DefaultConstructor
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Int32, TEntry): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(Int32, TEntry, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.Objects.HandleTable: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :ProcessHacker.Common.Objects.HandleTable`1[ProcessHacker.Common.Objects.HandleTableEntry]
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class ProcessHacker.Common.Objects.OutOfOrderException: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Exception
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class ProcessHacker.Common.Objects.DelayedReleasePool: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :ProcessHacker.Common.Objects.BaseObject
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    ProcessHacker.Common.Objects.DelayedReleasePool CurrentPool 'get set' : 
+  Methods:
+    get_CurrentPool(): PrivateScope, Public, Static, HideBySig, SpecialName
+    AddDereference(BaseObject): PrivateScope, Public, HideBySig
+    AddDispose(BaseObject): PrivateScope, Public, HideBySig
+    Drain(): PrivateScope, Public, HideBySig
+    Drain(Boolean): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.Threading.FastMutex: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Acquire(): PrivateScope, Public, HideBySig
+    AcquireContext(): PrivateScope, Public, HideBySig
+    Release(): PrivateScope, Public, HideBySig
+    TryAcquire(): PrivateScope, Public, HideBySig
+    TryAcquire(Int32): PrivateScope, Public, HideBySig
+Struct ProcessHacker.Common.Threading.FastMutex+FastMutexContext: AutoLayout, AnsiClass, Class, NestedPublic, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.Settings.SettingsBase: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+    Void .ctor(ProcessHacker.Common.Settings.ISettingsStore): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Object Item [System.String] 'get set' : 
+    ProcessHacker.Common.Settings.ISettingsStore Store 'get ' : 
+  Methods:
+    get_Item(String): PrivateScope, Public, HideBySig, SpecialName
+    set_Item(String, Object): PrivateScope, Public, HideBySig, SpecialName
+    get_Store(): PrivateScope, Public, HideBySig, SpecialName
+    Invalidate(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Reload(): PrivateScope, Public, HideBySig
+    Reset(): PrivateScope, Public, HideBySig
+    Save(): PrivateScope, Public, HideBySig
+Struct ProcessHacker.Common.Threading.ActionSync: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+    Void .ctor(System.Action, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Value 'get ' : 
+  Methods:
+    get_Value(): PrivateScope, Public, HideBySig, SpecialName
+    Increment(): PrivateScope, Public, HideBySig
+    IncrementMultiple(): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.EnumComparer`1[TEnum]: AutoLayout, AnsiClass, Class, Public, Sealed
+  Type parameter: TEnum, System.ValueType, System.IComparable, System.IConvertible, System.IFormattable,  NotNullableValueType DefaultConstructor
+  Interfaces:
+    System.Collections.Generic.IEqualityComparer`1[TEnum]
+  Fields:
+    ProcessHacker.Common.EnumComparer`1[TEnum] Instance : Public, Static, InitOnly
+  Methods:
+    Equals(TEnum, TEnum): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    GetHashCode(TEnum): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.BaseConverter: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    ReverseString(String): PrivateScope, Public, Static, HideBySig
+    ToNumber(String, Int32): PrivateScope, Public, Static, HideBySig
+    ToNumberParse(String): PrivateScope, Public, Static, HideBySig
+    ToNumberParse(String, Boolean): PrivateScope, Public, Static, HideBySig
+Interface ProcessHacker.Common.Ui.ISortedListViewComparer: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    Compare(ListViewItem, ListViewItem, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class ProcessHacker.Common.Ui.SortedListViewComparer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.Windows.Forms.ListView): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.IComparer
+  Properties:
+    Boolean VirtualMode 'get set' : 
+    System.Windows.Forms.RetrieveVirtualItemEventHandler RetrieveVirtualItem 'get set' : 
+    Boolean TriState 'get set' : 
+    ProcessHacker.Common.Ui.ISortedListViewComparer Comparer 'get set' : 
+    ProcessHacker.Common.Ui.ISortedListViewComparer TriStateComparer 'get set' : 
+    System.Windows.Forms.ListView ListView 'get ' : 
+    Int32 SortColumn 'get set' : 
+    System.Windows.Forms.SortOrder SortOrder 'get set' : 
+    System.Collections.Generic.IDictionary`2[System.Int32,System.Comparison`1[System.Windows.Forms.ListViewItem]] CustomSorters 'get ' : 
+    System.Collections.Generic.IList`1[System.Int32] ColumnSortOrder 'get ' : 
+  Methods:
+    get_VirtualMode(): PrivateScope, Public, HideBySig, SpecialName
+    set_VirtualMode(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_RetrieveVirtualItem(): PrivateScope, Public, HideBySig, SpecialName
+    set_RetrieveVirtualItem(RetrieveVirtualItemEventHandler): PrivateScope, Public, HideBySig, SpecialName
+    get_TriState(): PrivateScope, Public, HideBySig, SpecialName
+    set_TriState(Boolean): PrivateScope, Public, HideBySig, SpecialName
+    get_Comparer(): PrivateScope, Public, HideBySig, SpecialName
+    set_Comparer(ISortedListViewComparer): PrivateScope, Public, HideBySig, SpecialName
+    get_TriStateComparer(): PrivateScope, Public, HideBySig, SpecialName
+    set_TriStateComparer(ISortedListViewComparer): PrivateScope, Public, HideBySig, SpecialName
+    get_ListView(): PrivateScope, Public, HideBySig, SpecialName
+    get_SortColumn(): PrivateScope, Public, HideBySig, SpecialName
+    set_SortColumn(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_SortOrder(): PrivateScope, Public, HideBySig, SpecialName
+    set_SortOrder(SortOrder): PrivateScope, Public, HideBySig, SpecialName
+    get_CustomSorters(): PrivateScope, Public, HideBySig, SpecialName
+    get_ColumnSortOrder(): PrivateScope, Public, HideBySig, SpecialName
+    Compare(ListViewItem, ListViewItem): PrivateScope, Public, HideBySig
+    Compare(Object, Object): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.CircularBuffer`1[T]: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Type parameter: T
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.IO.Stream): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.Collections.Generic.IList`1[T]
+    System.Collections.Generic.ICollection`1[T]
+    System.Collections.Generic.IEnumerable`1[T]
+    System.Collections.IEnumerable
+  Properties:
+    T Item [Int32] 'get set' : 
+    Int32 Count 'get set' : 
+    Int32 Size 'get ' : 
+    Boolean IsReadOnly 'get ' : 
+  Methods:
+    get_Item(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    set_Item(Int32, T): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Count(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    get_Size(): PrivateScope, Public, HideBySig, SpecialName
+    Add(T): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Resize(Int32): PrivateScope, Public, HideBySig
+    Save(Stream): PrivateScope, Public, HideBySig
+    ToArray(): PrivateScope, Public, HideBySig
+    IndexOf(T): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Insert(Int32, T): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    RemoveAt(Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Clear(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Contains(T): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    CopyTo(T[], Int32): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    get_IsReadOnly(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName
+    Remove(T): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    GetEnumerator(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+Interface ProcessHacker.Common.IResettable: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract
+  Methods:
+    ResetObject(): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class ProcessHacker.Common.Utils: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Fields:
+    Int32[] Primes : Public, Static
+    System.String[] SizeUnitNames : Public, Static
+    Int32 UnitSpecifier : Public, Static
+    System.String MsgFailedToWaitIndefinitely = Failed to wait indefinitely on an object. : Public, Static, Literal, HasDefault
+    Int32 OneStackSize = 1048576 : Public, Static, Literal, HasDefault
+    Int32 HalfStackSize = 524288 : Public, Static, Literal, HasDefault
+    Int32 QuarterStackSize = 262144 : Public, Static, Literal, HasDefault
+    Int32 EighthStackSize = 131072 : Public, Static, Literal, HasDefault
+    Int32 SixteenthStackSize = 65536 : Public, Static, Literal, HasDefault
+  Methods:
+    SortFlagNames(Type): PrivateScope, Public, Static, HideBySig
+    StrCpy(Char*, String, Int32): PrivateScope, Public, Static, HideBySig
+    ToBitmap(IntPtr, Int32, Int32): PrivateScope, Public, Static, HideBySig
+    ToBitmap(Icon, Int32, Int32): PrivateScope, Public, Static, HideBySig
+    ToInt32(Byte[]): PrivateScope, Public, Static, HideBySig
+    ToInt32(Byte[], Endianness): PrivateScope, Public, Static, HideBySig
+    ToInt64(Byte[]): PrivateScope, Public, Static, HideBySig
+    ToInt64(Byte[], Endianness): PrivateScope, Public, Static, HideBySig
+    ToIntPtr(Byte[]): PrivateScope, Public, Static, HideBySig
+    ToUInt16(Byte[], Endianness): PrivateScope, Public, Static, HideBySig
+    ToUInt16(Byte[], Int32, Endianness): PrivateScope, Public, Static, HideBySig
+    ToUInt32(Byte[], Endianness): PrivateScope, Public, Static, HideBySig
+    ToUInt32(Byte[], Int32, Endianness): PrivateScope, Public, Static, HideBySig
+    ValidateBuffer(Byte[], Int32, Int32): PrivateScope, Public, Static, HideBySig
+    ValidateBuffer(Byte[], Int32, Int32, Boolean): PrivateScope, Public, Static, HideBySig
+    Align(Int32, Int32): PrivateScope, Public, Static, HideBySig
+    Break(String): PrivateScope, Public, Static, HideBySig
+    Concat(T[][]): PrivateScope, Public, Static, HideBySig
+    Contains(T[], T): PrivateScope, Public, Static, HideBySig
+    CountBits(Int32): PrivateScope, Public, Static, HideBySig
+    CountBits(Int64): PrivateScope, Public, Static, HideBySig
+    Create(Byte*, Int32): PrivateScope, Public, Static, HideBySig
+    CreateEllipsis(String, Int32): PrivateScope, Public, Static, HideBySig
+    CreateRandomString(Int32): PrivateScope, Public, Static, HideBySig
+    DisposeAndClear(MenuItemCollection): PrivateScope, Public, Static, HideBySig
+    DisableAllMenuItems(Menu): PrivateScope, Public, Static, HideBySig
+    DisableAll(Menu): PrivateScope, Public, Static, HideBySig
+    DivideUp(Int32, Int32): PrivateScope, Public, Static, HideBySig
+    DoDelayed(Control, Action`1): PrivateScope, Public, Static, HideBySig
+    Duplicate(T[]): PrivateScope, Public, Static, HideBySig
+    EnableAllMenuItems(Menu): PrivateScope, Public, Static, HideBySig
+    EnableAll(Menu): PrivateScope, Public, Static, HideBySig
+    Equals(T[], T[]): PrivateScope, Public, Static, HideBySig
+    Equals(T[], T[], Int32): PrivateScope, Public, Static, HideBySig
+    Equals(T[], T[], Int32, Int32): PrivateScope, Public, Static, HideBySig
+    Escape(String): PrivateScope, Public, Static, HideBySig
+    Fill(T[], T): PrivateScope, Public, Static, HideBySig
+    Fill(ComboBox, Type): PrivateScope, Public, Static, HideBySig
+    FitRectangle(Rectangle, Control): PrivateScope, Public, Static, HideBySig
+    FitRectangle(Rectangle, Rectangle): PrivateScope, Public, Static, HideBySig
+    FormatAddress(Int32): PrivateScope, Public, Static, HideBySig
+    FormatAddress(UInt32): PrivateScope, Public, Static, HideBySig
+    FormatAddress(Int64): PrivateScope, Public, Static, HideBySig
+    FormatAddress(UInt64): PrivateScope, Public, Static, HideBySig
+    FormatAddress(IntPtr): PrivateScope, Public, Static, HideBySig
+    FormatFlags(Type, Int64): PrivateScope, Public, Static, HideBySig
+    FormatLongTimeSpan(TimeSpan): PrivateScope, Public, Static, HideBySig
+    FormatRelativeDateTime(DateTime): PrivateScope, Public, Static, HideBySig
+    FormatSize(Int32): PrivateScope, Public, Static, HideBySig
+    FormatSize(UInt32): PrivateScope, Public, Static, HideBySig
+    FormatSize(IntPtr): PrivateScope, Public, Static, HideBySig
+    FormatSize(Int64): PrivateScope, Public, Static, HideBySig
+    FormatSize(UInt64): PrivateScope, Public, Static, HideBySig
+    FormatTimeSpan(TimeSpan): PrivateScope, Public, Static, HideBySig
+    GetAssemblyBuildDate(Assembly, Boolean): PrivateScope, Public, Static, HideBySig
+    GetAssemblyLastWriteTime(Assembly): PrivateScope, Public, Static, HideBySig
+    GetBytes(Int32): PrivateScope, Public, Static, HideBySig
+    GetBytes(Int32, Endianness): PrivateScope, Public, Static, HideBySig
+    GetBytes(UInt32): PrivateScope, Public, Static, HideBySig
+    GetBytes(UInt32, Endianness): PrivateScope, Public, Static, HideBySig
+    GetBytes(UInt16): PrivateScope, Public, Static, HideBySig
+    GetBytes(UInt16, Endianness): PrivateScope, Public, Static, HideBySig
+    GetDateTimeFromUnixTime(UInt32): PrivateScope, Public, Static, HideBySig
+    GetPrime(Int32): PrivateScope, Public, Static, HideBySig
+    GetRectangle(String): PrivateScope, Public, Static, HideBySig
+    GetThreadFromId(Process, Int32): PrivateScope, Public, Static, HideBySig
+    IsEmpty(Byte[]): PrivateScope, Public, Static, HideBySig
+    IsPrime(Int32): PrivateScope, Public, Static, HideBySig
+    JoinCommandLine(Dictionary`2): PrivateScope, Public, Static, HideBySig
+    MakePrintable(Char): PrivateScope, Public, Static, HideBySig
+    MakePrintable(String): PrivateScope, Public, Static, HideBySig
+    MatchWildcards(String, String): PrivateScope, Public, Static, HideBySig
+    ParseCommandLine(String[]): PrivateScope, Public, Static, HideBySig
+    ReadInt32(Stream, Endianness): PrivateScope, Public, Static, HideBySig
+    ReadString(Stream): PrivateScope, Public, Static, HideBySig
+    ReadString(Stream, Int32): PrivateScope, Public, Static, HideBySig
+    ReadUInt32(Stream, Endianness): PrivateScope, Public, Static, HideBySig
+    ReadUnicodeString(Stream): PrivateScope, Public, Static, HideBySig
+    ReadUnicodeString(Stream, Int32): PrivateScope, Public, Static, HideBySig
+    Reverse(Int32): PrivateScope, Public, Static, HideBySig
+    Reverse(UInt32): PrivateScope, Public, Static, HideBySig
+    Reverse(UInt16): PrivateScope, Public, Static, HideBySig
+    Reverse(T[]): PrivateScope, Public, Static, HideBySig
+    RoundUpTwo(Int32): PrivateScope, Public, Static, HideBySig
+    RoundUpTwo(Int64): PrivateScope, Public, Static, HideBySig
+    SelectAll(ListViewItemCollection): PrivateScope, Public, Static, HideBySig
+    SelectAll(ListView): PrivateScope, Public, Static, HideBySig
+    SetDoubleBuffered(Control, Type, Boolean): PrivateScope, Public, Static, HideBySig
+    SetDoubleBuffered(Control, Boolean): PrivateScope, Public, Static, HideBySig
+    ShowFileInExplorer(String): PrivateScope, Public, Static, HideBySig
+    SizeOf(): PrivateScope, Public, Static, HideBySig
+    SizeOf(Int32): PrivateScope, Public, Static, HideBySig
+Struct ProcessHacker.Common.Utils+Endianness: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  :System.Enum
+  Fields:
+    Int32 value__ : Public, SpecialName, RTSpecialName
+    Endianness Little = 0 : Public, Static, Literal, HasDefault
+    Endianness Big = 1 : Public, Static, Literal, HasDefault
+Class ProcessHacker.Common.Threading.Interlocked2: AutoLayout, AnsiClass, Class, Public, Abstract, Sealed, BeforeFieldInit
+  Methods:
+    Set(Int32&, Predicate`1, Func`2): PrivateScope, Public, Static, HideBySig
+Class ProcessHacker.Common.Messaging.MessageQueue: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    AddListener(MessageQueueListener): PrivateScope, Public, HideBySig
+    Enqueue(Message): PrivateScope, Public, HideBySig
+    EnqueueAction(Action): PrivateScope, Public, HideBySig
+    Listen(): PrivateScope, Public, HideBySig
+    RemoveListener(MessageQueueListener): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.Objects.SecuredHandleTableEntry: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :ProcessHacker.Common.Objects.HandleTableEntry
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int64 GrantedAccess 'get set' : 
+  Methods:
+    get_GrantedAccess(): PrivateScope, Public, HideBySig, SpecialName
+    set_GrantedAccess(Int64): PrivateScope, Public, HideBySig, SpecialName
+    AreAllAccessesGranted(TAccess): PrivateScope, Public, HideBySig
+    AreAnyAccessesGranted(TAccess): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.Objects.SecuredHandleTable`1[TEntry]: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Type parameter: TEntry, ProcessHacker.Common.Objects.SecuredHandleTableEntry,  DefaultConstructor
+  :ProcessHacker.Common.Objects.HandleTable`1[TEntry]
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Allocate(IRefCounted, TAccess): PrivateScope, Public, HideBySig
+    ReferenceByHandle(Int32, TAccess): PrivateScope, Public, HideBySig
+    ReferenceByHandle(Int32, TAccess, Boolean): PrivateScope, Public, HideBySig
+    ReferenceByHandle(Int32, TAccess): PrivateScope, Public, HideBySig
+    ReferenceByHandle(Int32, TAccess, Boolean): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.Objects.SecuredHandleTable: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :ProcessHacker.Common.Objects.SecuredHandleTable`1[ProcessHacker.Common.Objects.SecuredHandleTableEntry]
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class ProcessHacker.Common.Messaging.MessageReceivedDelegate: AutoLayout, AnsiClass, Class, Public, Sealed
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(Message): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(Message, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.Messaging.MessageQueueListener: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(ProcessHacker.Common.Messaging.MessageReceivedDelegate, System.Type): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    ProcessHacker.Common.Messaging.MessageReceivedDelegate Callback 'get ' : 
+    System.Type Type 'get ' : 
+  Methods:
+    get_Callback(): PrivateScope, Public, HideBySig, SpecialName
+    get_Type(): PrivateScope, Public, HideBySig, SpecialName
+Class ProcessHacker.Common.Messaging.MessageQueueListener`1[T]: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  Type parameter: T, ProcessHacker.Common.Messaging.Message
+  :ProcessHacker.Common.Messaging.MessageQueueListener
+    Void .ctor(MessageReceivedDelegate): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class ProcessHacker.Common.Messaging.MessageQueueListener`1+MessageReceivedDelegate[T]: AutoLayout, AnsiClass, Class, NestedPublic, Sealed
+  Type parameter: T, ProcessHacker.Common.Messaging.Message
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Invoke(T): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    BeginInvoke(T, AsyncCallback, Object): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+Class ProcessHacker.Common.Threading.SemaphorePair: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Properties:
+    Int32 Count 'get ' : 
+  Methods:
+    get_Count(): PrivateScope, Public, HideBySig, SpecialName
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    ReleaseRead(): PrivateScope, Public, HideBySig
+    ReleaseWrite(): PrivateScope, Public, HideBySig
+    WaitRead(): PrivateScope, Public, HideBySig
+    WaitRead(Int32): PrivateScope, Public, HideBySig
+    WaitWrite(): PrivateScope, Public, HideBySig
+    WaitWrite(Int32): PrivateScope, Public, HideBySig
+Class ProcessHacker.Common.Settings.XmlFileSettingsStore: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+    Void .ctor(System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    ProcessHacker.Common.Settings.ISettingsStore
+  Properties:
+    System.String FileName 'get ' : 
+  Methods:
+    get_FileName(): PrivateScope, Public, HideBySig, SpecialName
+    Flush(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    GetValue(String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    Reset(): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
+    SetValue(String, String): PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask
